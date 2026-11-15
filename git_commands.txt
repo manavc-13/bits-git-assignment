@@ -1,0 +1,117 @@
+Git commands used in the assignment
+Manav Amit Choudhary - 2024EB01437
+Repository: https://github.com/manavc-13/bits-git-assignment.git
+
+Step 1: Local repository setup
+------------------------------
+mkdir my-website
+  Creates the project folder.
+
+cd my-website
+  Moves into the project folder.
+
+git init -b main
+  Initialises an empty Git repository in the folder with main as the default branch.
+
+git config user.name "Manav Amit Choudhary"
+git config user.email "manavc.137@gmail.com"
+  Sets the name and email that are saved with every commit in this repository.
+
+git config core.autocrlf false
+  Stops Git from converting LF line endings to CRLF on Windows.
+
+git status
+  Shows the current branch and which files are untracked, modified or staged.
+
+Step 2: Git workflow
+--------------------
+git add index.html about.html
+  Stages the two files so they are included in the next commit.
+
+git commit -m "Initial commit: add index.html and about.html"
+  Saves the staged files as the first commit (initial state of the project).
+
+git log --oneline
+  Shows the commit history with one line per commit.
+
+git diff
+  Shows the changes made to files that are not staged yet.
+
+git commit -am "Update home page text in index.html"
+  Stages all modified tracked files and commits them in one step (second commit).
+
+git branch feature
+  Creates a new branch named feature from the current commit.
+
+git branch
+  Lists the local branches. The current branch is marked with *.
+
+git checkout feature
+  Switches to the feature branch.
+
+git add about.html
+git commit -m "Expand about page description (feature branch)"
+  Stages and commits the change to about.html on the feature branch.
+
+git log --oneline --graph --all --decorate
+  Shows the history of all branches as a graph along with branch names.
+
+git checkout main
+  Switches back to the main branch.
+
+git merge --no-ff feature -m "Merge branch 'feature' into main"
+  Merges feature into main. --no-ff forces a merge commit so the branch is visible in the history.
+
+git log --stat
+  Shows the full commit history with author, date, message and the files changed in each commit.
+
+Step 3: .gitignore
+------------------
+git check-ignore -v app.log temp/notes.txt
+  Checks whether the files are ignored and shows the .gitignore rule that matches each one.
+
+git add .gitignore
+git commit -m "Add .gitignore to ignore *.log files and temp/ folder"
+  Stages and commits the .gitignore file.
+
+git status --ignored
+  Shows the status along with the files that are being ignored.
+
+Step 4: Undo operation
+----------------------
+git add contact.html
+git commit -m "Add contact page"
+  Extra commit which is undone in the next command.
+
+git log --oneline -3
+  Shows the last 3 commits.
+
+git revert --no-edit HEAD
+  Undoes the last commit by creating a new commit with the opposite changes. History is kept,
+  so it is safe for a repository shared on GitHub.
+
+git show --stat HEAD
+  Shows the details of the latest commit and the files it changed.
+
+Step 6: Command documentation file
+----------------------------------
+git add git_commands.txt
+git commit -m "Add git_commands.txt documenting all Git commands used"
+  Stages and commits this file.
+
+Step 5: GitHub integration
+--------------------------
+git remote add origin https://github.com/manavc-13/bits-git-assignment.git
+  Connects the local repository to the GitHub repository with the name origin.
+
+git remote -v
+  Lists the remote and its fetch and push URLs.
+
+git push -u origin main
+  Pushes the main branch to GitHub and sets origin/main as its upstream branch.
+
+git push -u origin feature
+  Pushes the feature branch to GitHub as well.
+
+git branch -a -vv
+  Lists local and remote branches with their latest commit and tracking branch.
